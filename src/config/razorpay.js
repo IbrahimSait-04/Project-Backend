@@ -1,11 +1,10 @@
 import dotenv from "dotenv";
 import Razorpay from "razorpay";
 
-// Load environment variables
 dotenv.config();
 
 if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
-  throw new Error("❌ Missing RAZORPAY_KEY_ID or RAZORPAY_KEY_SECRET in .env");
+  throw new Error(" Missing RAZORPAY_KEY_ID or RAZORPAY_KEY_SECRET in .env");
 }
 
 const razorpay = new Razorpay({
@@ -13,6 +12,6 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-console.log("✅ Razorpay initialized with key:", process.env.RAZORPAY_KEY_ID);
+console.log(" Razorpay initialized with key:", process.env.RAZORPAY_KEY_ID);
 
 export default razorpay;

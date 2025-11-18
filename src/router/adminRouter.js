@@ -6,7 +6,7 @@ import { getAllCustomers } from "../controllers/customerController.js";
 
 const adminRouter = express.Router();
 
-// Login route (no middleware)
+// Login route
 adminRouter.post("/login", adminLogin);
 adminRouter.post('/', adminCreate);
 
@@ -21,8 +21,5 @@ adminRouter.put("/staff/:id", protect("admin"), updateStaff);
 adminRouter.delete("/staff/:id", protect("admin"), deleteStaff);
 adminRouter.get("/customer", protect("admin"), getAllCustomers);
 
-
-
-//menu
 adminRouter.post("/menucreate" , createMenuItem);
 export default adminRouter;

@@ -5,7 +5,6 @@ import {protect} from '../middlewares/authMiddleware.js';
 const customerRouter = express.Router();
 
 //customer registeration
-
 customerRouter.post('/', customerRegister);
 customerRouter.post('/login', customerLogin);
 customerRouter.put('/', updateCustomerProfile);

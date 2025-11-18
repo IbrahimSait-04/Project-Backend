@@ -6,6 +6,7 @@ const customerSchema = new mongoose.Schema({
     email: { type : String, required: true , unique: true},
     phone: { type : String, required: true , maxlength: 10 },
     password: { type : String, required: true , minlength: 6},
+    role: { type: String, default: "customer" },
 } ,{timestamps: true});
 
 export const Customer = mongoose.model("Customer", customerSchema);

@@ -4,14 +4,14 @@ const orderSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Customer", // ✅ Match your customer model
+      ref: "Customer",  
       required: true,
     },
     items: [
       {
         product: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "Product",
+          ref: "Menu",
           required: true,
         },
         quantity: { type: Number, required: true, min: 1 },

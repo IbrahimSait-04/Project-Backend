@@ -72,7 +72,7 @@ export const adminLogin = async (req, res) => {
 // Get Admin Profile
 export const getAdminProfile = async (req, res) => {
   try {
-    const admin = req.user; // already fetched by middleware
+    const admin = req.user;
     if (!admin) return res.status(404).json({ message: "Admin not found" });
 
     res.status(200).json({ admin });
@@ -84,7 +84,7 @@ export const getAdminProfile = async (req, res) => {
 // Update Admin Profile 
 export const updateAdminProfile = async (req, res) => {
   try {
-    const admin = req.user; // already fetched by middleware
+    const admin = req.user; 
     if (!admin) return res.status(401).json({ message: "Not authorized" });
 
     const { name, email, password } = req.body;

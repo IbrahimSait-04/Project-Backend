@@ -3,7 +3,7 @@ import path from "path";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/"); // must match existing folder
+    cb(null, "uploads/"); 
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + "-" + file.originalname);

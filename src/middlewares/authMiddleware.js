@@ -27,6 +27,7 @@ export const protect = (roles = []) => {
         }
 
         req.user = user;
+        req.user.role = decoded.role;
         next();
       } catch (error) {
         return res.status(401).json({ message: "Token invalid or expired" });

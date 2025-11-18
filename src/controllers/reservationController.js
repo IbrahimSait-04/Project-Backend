@@ -1,6 +1,6 @@
 import { Reservation } from "../models/reservation.js";
 
-/* 🟢 CREATE RESERVATION (Customer) */
+/*  CREATE RESERVATION (Customer) */
 export const createReservation = async (req, res) => {
   try {
     const { date, time, partySize } = req.body;
@@ -27,7 +27,7 @@ export const createReservation = async (req, res) => {
   }
 };
 
-/* 🔵 GET ALL RESERVATIONS (Admin/Staff) */
+/* GET ALL RESERVATIONS (Admin/Staff) */
 export const getAllReservations = async (req, res) => {
   try {
     const reservations = await Reservation.find()
@@ -41,7 +41,7 @@ export const getAllReservations = async (req, res) => {
   }
 };
 
-/* 🟣 GET RESERVATIONS BY CUSTOMER */
+/*  GET RESERVATIONS BY CUSTOMER */
 export const getReservationsByCustomer = async (req, res) => {
   try {
     const reservations = await Reservation.find({ user: req.user._id }).sort({
@@ -54,7 +54,7 @@ export const getReservationsByCustomer = async (req, res) => {
   }
 };
 
-/* 🟠 UPDATE RESERVATION STATUS (Admin/Staff) */
+/* UPDATE RESERVATION STATUS (Admin/Staff) */
 export const updateReservationStatus = async (req, res) => {
   try {
     const { id } = req.params;
@@ -82,7 +82,7 @@ export const updateReservationStatus = async (req, res) => {
   }
 };
 
-/* 🔴 DELETE RESERVATION (Admin/Staff) */
+/*  DELETE RESERVATION (Admin/Staff) */
 export const deleteReservation = async (req, res) => {
   try {
     const { id } = req.params;

@@ -106,10 +106,10 @@ export const updateCustomerProfile = async (req, res) => {
 //Delete Customer 
 export const deleteCustomer = async (req, res) => {
   try {
-    const customer = req.user; // fetched by middleware
+    const customer = req.user; 
     if (!customer) return res.status(404).json({ message: "Customer not found" });
 
-    await customer.findByIdAndDelete();
+    await Customer.findByIdAndDelete(customer._id);
     res.status(200).json({ message: "Customer deleted successfully" });
   } catch (error) {
     console.error("Error deleting customer:", error);

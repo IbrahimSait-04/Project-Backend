@@ -14,29 +14,27 @@ import orderRouter from "./src/router/orderRouter.js";
 import paymentRouter from "./src/router/paymentRouter.js";
 import reservationRouter from "./src/router/reservationRouter.js";
 
-// 🌿 Load environment variables
 dotenv.config();
 
-// 🗄️ Connect Database
+//  Connect Database
 connectdb();
 
-// ⚙️ Initialize Express
+//  Initialize Express
 const app = express();
 
-// 🧠 Middleware
+//  Middleware
 app.use(express.json());
 app.use(cors());
 
-// 📁 Ensure uploads folder exists
 const uploadDir = path.resolve("uploads");
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
 }
 
-// 🌐 Serve static uploads
+//  Serve static uploads
 app.use("/uploads", express.static(uploadDir));
 
-// 🚏 API Routes
+//  API Routes
 app.use("/api/admin", adminRouter);
 app.use("/api/staff", staffRouter);
 app.use("/api/customer", customerRouter);

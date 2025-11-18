@@ -51,14 +51,14 @@ export const staffLogin = async (req, res) => {
 
 // UPDATE STAFF PROFILE
 export const updateStaffProfile = async (req, res) => {
-  const staff = req.user; // ✅ use req.user from middleware
+  const staff = req.user; 
   const { email, password } = req.body;
 
   try {
     if (email) staff.email = email.toLowerCase();
     if (password) {
       const salt = await bcrypt.genSalt(10);
-      staff.password = await bcrypt.hash(password, salt); // hash before saving
+      staff.password = await bcrypt.hash(password, salt); 
     }
     await staff.save();
 
@@ -78,7 +78,7 @@ export const updateStaffProfile = async (req, res) => {
 
 // GET STAFF PROFILE
 export const getStaffProfile = async (req, res) => {
-  const staff = req.user; // ✅ use req.user
+  const staff = req.user; 
   res.status(200).json({
     staff: {
       id: staff._id,
