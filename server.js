@@ -14,26 +14,43 @@ import paymentRouter from "./src/router/paymentRouter.js";
 import reservationRouter from "./src/router/reservationRouter.js";
 
 dotenv.config();
-
-//  Connect Database
 connectdb();
 
-//  Initialize Express
 const app = express();
 
-//  Middleware
+const allowedOrigins = [
+  "https://project-frontend-nine-nu.vercel.app", //  Vercel frontend
+  "http://localhost:5173",                       // dev (Vite)
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, 
+  })
+);
+
+app.options("*", cors());
+
 app.use(express.json());
-app.use(cors());
 
 const uploadDir = path.resolve("uploads");
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
 }
 
-//  Serve static uploads
 app.use("/uploads", express.static(uploadDir));
 
-//  API Routes
 app.use("/api/admin", adminRouter);
 app.use("/api/staff", staffRouter);
 app.use("/api/customer", customerRouter);
