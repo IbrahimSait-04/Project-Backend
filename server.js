@@ -5,7 +5,6 @@ import fs from "fs";
 import path from "path";
 import connectdb from "./src/config/db.js";
 
-// 🧩 Import Routers
 import adminRouter from "./src/router/adminRouter.js";
 import staffRouter from "./src/router/staffRouter.js";
 import customerRouter from "./src/router/customerRouter.js";
@@ -43,7 +42,6 @@ app.use("/api/orders", orderRouter);
 app.use("/api/payment", paymentRouter);
 app.use("/api/reservations", reservationRouter);
 
-//  Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(` Server running on port ${PORT}`);
