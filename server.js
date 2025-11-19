@@ -26,6 +26,8 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
+      console.log("CORS request from origin:", origin); 
+
       if (!origin) return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
@@ -36,9 +38,10 @@ app.use(
     },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true, 
+    credentials: true,
   })
 );
+
 
 
 app.use(express.json());
