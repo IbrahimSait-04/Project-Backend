@@ -19,7 +19,7 @@ connectdb();
 const app = express();
 
 const allowedOrigins = [
-  "https://project-frontend-nine-nu.vercel.app", //  Vercel frontend
+  "https://project-frontend-flame.vercel.app", //  Vercel frontend
   "http://localhost:5173",                       // dev (Vite)
 ];
 
