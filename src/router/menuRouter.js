@@ -23,8 +23,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Routes
-menuRouter.post("/create", upload.single("image"), createMenuItem);
-menuRouter.put("/:id", upload.single("image"), updateMenuItem);
+menuRouter.post("/create", createMenuItem);
+menuRouter.put("/:id", updateMenuItem);
 menuRouter.get("/", getMenuItems);
 menuRouter.get("/:id", getMenuItemById);
 menuRouter.delete("/:id", deleteMenuItem);

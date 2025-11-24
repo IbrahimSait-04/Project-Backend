@@ -12,6 +12,7 @@ import menuRouter from "./src/router/menuRouter.js";
 import orderRouter from "./src/router/orderRouter.js";
 import paymentRouter from "./src/router/paymentRouter.js";
 import reservationRouter from "./src/router/reservationRouter.js";
+import uploadRouter from "./src/router/uploadRouter.js";
 
 dotenv.config();
 connectdb();
@@ -60,6 +61,9 @@ app.use("/api/menu", menuRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/payment", paymentRouter);
 app.use("/api/reservations", reservationRouter);
+
+app.use("/api/upload", uploadRouter);
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
