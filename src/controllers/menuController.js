@@ -16,7 +16,7 @@ export const createMenuItem = async (req, res) => {
       description,
       price,
       category,
-      image, // now a URL (e.g. ImgBB) or filename string
+      image, 
     });
 
     await menuItem.save();

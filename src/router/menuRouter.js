@@ -22,7 +22,6 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Routes
 menuRouter.post("/create", createMenuItem);
 menuRouter.put("/:id", updateMenuItem);
 menuRouter.get("/", getMenuItems);

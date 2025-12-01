@@ -10,7 +10,6 @@ export const createOrder = async (req, res) => {
     }
     if (!req.user?._id) return res.status(401).json({ message: "Unauthorized" });
 
-    // Price from DB to avoid client tampering
     const menuIds = items.map(i => i.product);
     const menus = await Menu.find({ _id: { $in: menuIds } }).select("price");
     const priceMap = new Map(menus.map(m => [String(m._id), m.price]));

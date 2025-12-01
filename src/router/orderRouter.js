@@ -12,7 +12,7 @@ orderrouter.get("/my-orders", protect("customer"), getMyOrders);
 
 // Admin/Staff
 orderrouter.get("/", protect(["staff","admin"]), getAllOrders);
-orderrouter.get("/:id", protect(["staff","admin"]), getOrderById);        // <<— for View Details
+orderrouter.get("/:id", protect(["staff","admin"]), getOrderById);        
 orderrouter.put("/:id/status", protect(["staff","admin"]), updateOrderStatus);
 
 export default orderrouter;
